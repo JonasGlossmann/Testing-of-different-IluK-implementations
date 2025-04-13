@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakePythonSetting">
+    <option name="pythonIntegrationState" value="YES" />
+  </component>
+  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
+  <component name="CidrRootsConfiguration">
+    <sourceRoots>
+      <file path="$PROJECT_DIR$/Matrix Management" />
+      <file path="$PROJECT_DIR$/Preconditioners" />
+      <file path="$PROJECT_DIR$/Solver" />
+    </sourceRoots>
+    <libraryRoots>
+      <file path="$PROJECT_DIR$/eigen-3.4.0" />
+    </libraryRoots>
+  </component>
+</project>
