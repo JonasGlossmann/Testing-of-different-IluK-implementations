@@ -46,4 +46,6 @@ add_executable(Preconditioner_Testing main.cpp
         misc/data_structs.h
         Preconditioners/Iluk_moderncpp_standard_order.cpp
         Preconditioners/Iluk_moderncpp_standard_order.h
+        Preconditioners/Ilu_k_moderncpp_alternative_standard_order.cpp
+        Preconditioners/Ilu_k_moderncpp_alternative_standard_order.h
 )
