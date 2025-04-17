@@ -11,20 +11,6 @@
 
 
 inline void testing_grounds() {
-    auto [matrix, rhs, startvector]  = loadStandardTestingProblem();
-
-
-    PCG Solver;
-    PcgSolution result = Solver.calculate(matrix, rhs, startvector,
-                                      std::optional<std::shared_ptr<Preconditioner> >(new Iluk_moderncpp_standard_order(matrix,0)));
-    auto& [iter, sol] = result;
-
-    std::cout << iter << std::endl;
-
-    result = Solver.calculate(matrix, rhs, startvector,
-                                      std::optional<std::shared_ptr<Preconditioner> >(new Ilu_k_matlab_order(matrix,0)));
-
-    std::cout << iter << std::endl;
 }
 
 inline void testing_sparse_vector_subtraction() {
@@ -146,12 +132,12 @@ inline void correct_lvl3_decomposition_test() {
 
 
 inline void iluk_moderncpp_standard_order_test() {
-    testing_grounds();
+    //testing_grounds();
     testing_sparse_vector_subtraction();
     testing_filter_entries();
-    //correct_lvl0_decomposition_test();
-    //correct_lvl1_decomposition_test();
-    //correct_lvl2_decomposition_test();
-    //correct_lvl3_decomposition_test();
+    correct_lvl0_decomposition_test();
+    correct_lvl1_decomposition_test();
+    correct_lvl2_decomposition_test();
+    correct_lvl3_decomposition_test();
 }
 #endif //ILUK_MODERNCPP_STANDARD_ORDER_TEST_H

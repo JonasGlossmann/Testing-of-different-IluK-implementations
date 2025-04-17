@@ -20,7 +20,8 @@ public:
     std::vector<MatrixEntry> L;
     std::vector<MatrixEntry> U;
 
-    Iluk_moderncpp_standard_order(COOMatrixSorted A_ext, int level);
+
+    Iluk_moderncpp_standard_order(std::vector<MatrixEntry>& A_ext, size_t a_cols, int level);
     DenseVector apply(DenseVector residual) override;
 };
 
