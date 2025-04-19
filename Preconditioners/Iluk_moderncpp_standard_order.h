@@ -9,11 +9,6 @@
 #include "../Matrix Management/COOMatrixSorted.h"
 
 
-void sparse_row_subtraction_with_level (std::vector<MatrixEntry>& x,const std::vector<MatrixEntry>& y,
-     std::vector<int>& x_lvl, const std::vector<int>& y_lvl, double alpha, int alpha_lvl);
-
-void filter_entries(std::vector<MatrixEntry>& vector,std::vector<int>& lvl, int max_lvl);
-
 
 class Iluk_moderncpp_standard_order final: public Preconditioner {
 public:
