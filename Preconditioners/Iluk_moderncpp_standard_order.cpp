@@ -4,26 +4,7 @@
 
 #include "Iluk_moderncpp_standard_order.h"
 
-void copy_first_row(const std::vector<MatrixEntry>& A_old, std::vector<MatrixEntry>& A_new, std::vector<int>& A_lvl_new,
-                    std::vector<size_t>& A_new_row_ptr, std::vector<MatrixEntry>& U ) {
-    for (size_t i = 0; i < A_old.size()&& A_old[i].row == 0; i++) {
-        A_new.push_back(A_old[i]);
-        A_lvl_new.push_back(0);
-        U.push_back(A_old[i]);
-    }
-    A_new_row_ptr.push_back(0);
-    A_new_row_ptr.push_back(A_new.size());
-}
 
-void get_row_by_index(int row_number, size_t& index, std::vector<MatrixEntry>&matrix, std::vector<int>& lvl_mtx,
-                        std::vector<MatrixEntry>& row_return, std::vector<int>& row_lvl_return) {
-    std::vector<MatrixEntry> row;
-    while (matrix[index].row==row_number) {
-        row_return.push_back(matrix[index]);
-        row_lvl_return.push_back(lvl_mtx[index]);
-        ++index;
-    }
-}
 
 //@param A Matrix (need to be sorted by row)
 //@param a_size number of cols/rows (matrix must be symmetrical)
