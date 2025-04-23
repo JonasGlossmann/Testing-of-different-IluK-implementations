@@ -207,10 +207,11 @@ Ilu_k_matlab_order::Ilu_k_matlab_order(COOMatrixSorted A_ext, int leve) {
 			for(size_t k = pcolindexU[itr->first] + 1; k != pcolindexU[itr->first + 1]; ++k) {
 				// is prowU[k] a permitted fill-in?
 				if(work_lev[prowU[k]] == 1) {
-					//todo
-					if(prowU[k] == 5001 && j == 5050) {
-						//std::cout<<std::setprecision (53) <<work[prowU[k]] << "<- a_ij \n   aik-> "<< alpha << "  akj->" << U[k]<< std::endl;
-					}
+					/*todo debug code entfernen
+					std::cout << prowU[k] << std::endl;
+					if(prowU[k] == 102) {
+						std::cout<<std::setprecision (53) <<work[prowU[k]] << "<- a_ij \n   aik-> "<< alpha << "  akj->" << U[k]<< std::endl;
+					}*/
 					work[prowU[k]] -= alpha * U[k];
 				}
 				// if memory is an issue you can avoid the work_lev array

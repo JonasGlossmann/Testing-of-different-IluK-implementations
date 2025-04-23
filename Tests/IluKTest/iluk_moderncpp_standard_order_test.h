@@ -61,6 +61,15 @@ inline void testing_filter_entries() {
 
 inline void check_LU(Ilu_k_matlab_order& expected_precon, Iluk_moderncpp_standard_order & actual_precon) {
     for (int i = 0; i< expected_precon.L.size(); i++) {
+        if(actual_precon.L[i].row == 102 && actual_precon.L[i].col == 101) {
+            auto val = expected_precon.L[i];
+            auto col = expected_precon.L_col[i];
+            int index = 0;
+            while(i>expected_precon.L_row_ptr[index]) {
+                index++;
+            }
+            auto row = index;
+        }
         debug_assert(expected_precon.L[i], actual_precon.L[i].value,
             "expected " + std::to_string(expected_precon.L[i]) + ", got: " + std::to_string(actual_precon.L[i].value)
             + " at "+ std::to_string(actual_precon.L[i].row) + " "+ std::to_string(actual_precon.L[i].col));
@@ -82,7 +91,7 @@ inline void correct_lvl0_decomposition_test() {
     std::vector<MatrixEntry> test_A = matrix.getFullMatrix(false);
 
     auto expected_precon =  Ilu_k_matlab_order(matrix, 0);
-    auto actual_precon = Iluk_moderncpp_standard_order(test_A,test_A.size(), 0);
+    auto actual_precon = Iluk_moderncpp_standard_order(test_A,A.cols, 0);
 
 
     check_LU(expected_precon, actual_precon);
@@ -97,7 +106,7 @@ inline void correct_lvl1_decomposition_test() {
     std::vector<MatrixEntry> test_A = matrix.getFullMatrix(false);
 
     auto expected_precon =  Ilu_k_matlab_order(matrix, 1);
-    auto actual_precon = Iluk_moderncpp_standard_order(test_A,test_A.size(), 1);
+    auto actual_precon = Iluk_moderncpp_standard_order(test_A,A.cols, 1);
 
     check_LU(expected_precon, actual_precon);
     std::cout << "passed correct_lvl1_decomposition_test"<< std::endl;
@@ -111,7 +120,7 @@ inline void correct_lvl2_decomposition_test() {
     std::vector<MatrixEntry> test_A = matrix.getFullMatrix(false);
 
     auto expected_precon =  Ilu_k_matlab_order(matrix, 2);
-    auto actual_precon = Iluk_moderncpp_standard_order(test_A,test_A.size(), 2);
+    auto actual_precon = Iluk_moderncpp_standard_order(test_A,A.cols, 2);
 
     check_LU(expected_precon, actual_precon);
     std::cout << "passed correct_lvl2_decomposition_test"<< std::endl;
@@ -125,7 +134,7 @@ inline void correct_lvl3_decomposition_test() {
     std::vector<MatrixEntry> test_A = matrix.getFullMatrix(false);
 
     auto expected_precon =  Ilu_k_matlab_order(matrix, 3);
-    auto actual_precon = Iluk_moderncpp_standard_order(test_A,test_A.size(), 3);
+    auto actual_precon = Iluk_moderncpp_standard_order(test_A,A.cols, 3);
 
     check_LU(expected_precon, actual_precon);
     std::cout << "passed correct_lvl3_decomposition_test"<< std::endl;
